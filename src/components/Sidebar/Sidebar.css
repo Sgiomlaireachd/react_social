@@ -1,0 +1,31 @@
+/* Sidebar */
+
+.sidebar {
+  grid-area: s;
+
+  background-color: #fff;
+}
+
+.sidebar__inner {
+  list-style: none;
+  padding: 20px;
+}
+
+.sidebar__url {
+  text-decoration: none;
+  display: block;
+  width: 100%;
+  padding: 5px 10px;
+  color: #000;
+  transition: color 0.2s ease, background-color 0.2s ease;
+}
+
+.sidebar__url:hover {
+  background-color: gray;
+  color: #fff;
+}
+
+.sidebar__url.active {
+  background-color: gray;
+  color: #fff;
+}

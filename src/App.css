@@ -1,3 +1,19 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #ecf1f5;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
 .container {
   width: 100%;
   max-width: 1200px;
@@ -7,35 +23,16 @@
 
 .app_wrapper {
   display: grid;
-  grid-template-rows: 60px 1fr;
+  grid-template-rows: 100px 1fr;
   grid-template-columns: 2fr 10fr;
-  grid-gap: 15px;
+  grid-gap: 10px;
 
   grid-template-areas:
     "h h"
     "s c";
 }
 
-.header {
-  grid-area: h;
-
-  background-color: brown;
-}
-
-.sidebar {
-  grid-area: s;
-
-  background-color: dimgray;
-}
-
-.content {
+.app_content {
   grid-area: c;
-
-  background-color: gray;
-}
-
-img {
-  display: block;
-  max-width: 100%;
-  height: auto;
+  background-color: #fff;
 }

@@ -1,0 +1,11 @@
+/* Header */
+
+.header {
+  grid-area: h;
+  background-color: #fff;
+  text-align: center;
+}
+
+.header h1 {
+  padding: 10px 0;
+}
