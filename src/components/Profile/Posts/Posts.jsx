@@ -14,13 +14,21 @@ const Posts = (props) => {
 
   let textAreaRef = React.createRef();
 
+  const addPostActionCreator = () => {
+    return { type: "ADD-POST" };
+  };
+
+  const updateNewPostTextActionCreator = (newText) => {
+    return { type: "UPDATE-NEW-POST-TEXT", newText: newText };
+  };
+
   const addPost = () => {
-    props.addPost();
+    props.store.dispatch(addPostActionCreator());
   };
 
   const updateTextArea = () => {
     let text = textAreaRef.current.value;
-    props.updateNewPostText(text);
+    props.store.dispatch(updateNewPostTextActionCreator(text));
   };
 
   return (
