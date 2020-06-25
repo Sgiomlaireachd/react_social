@@ -1,7 +1,6 @@
 import React from "react";
 import Message from "./Message/Message";
 import "./Messages.css";
-import {updateNewMessageTextActionCreator, addMessageActionCreator} from '../../../redux/dialogs-reducer';
 
 const Messages = (props) => {
   const messages = props.messagesData.map((item) => (
@@ -12,11 +11,11 @@ const Messages = (props) => {
 
   const updateTextArea = () => {
     const text = textAreaRef.current.value;
-    props.store.dispatch(updateNewMessageTextActionCreator(text));
+    props.updateTextArea(text);
   };
 
   const sendMessage = () => {
-    props.store.dispatch(addMessageActionCreator());
+    props.addMessage();
   };
 
   return (
@@ -26,7 +25,7 @@ const Messages = (props) => {
         <textarea
           ref={textAreaRef}
           onChange={updateTextArea}
-          value={props.store.getState().dialogsPage.newMessageText}
+          value={props.newMessageText}
         ></textarea>
         <button onClick={sendMessage}>Send Message</button>
       </div>

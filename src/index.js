@@ -3,13 +3,17 @@ import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
 import * as serviceWorker from "./serviceWorker";
-import store from "./redux/state";
+import store from "./redux/redux-store";
 
 export const rerenderEntireTree = (state) => {
-  ReactDOM.render(
-    <React.StrictMode>
-      <App store={store} />
-    </React.StrictMode>,
+  ReactDOM.render( <
+    React.StrictMode >
+    <
+    App store = {
+      store
+    }
+    /> < /
+    React.StrictMode > ,
     document.getElementById("root")
   );
 };

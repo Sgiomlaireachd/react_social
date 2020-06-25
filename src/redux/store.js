@@ -4,8 +4,7 @@ import dialogsReducer from './dialogs-reducer';
 const store = {
   _state: {
     profilePage: {
-      postsData: [
-        {
+      postsData: [{
           id: 1,
           message: "this is My first post!",
           pubDate: "11.05.2000",
@@ -28,8 +27,7 @@ const store = {
     },
 
     dialogsPage: {
-      messagesData: [
-        {
+      messagesData: [{
           message: "Hello!",
         },
         {
@@ -42,8 +40,7 @@ const store = {
           message: "Test!",
         },
       ],
-      dialogsData: [
-        {
+      dialogsData: [{
           id: 1,
           name: "Mike",
         },
