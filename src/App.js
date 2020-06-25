@@ -1,5 +1,4 @@
 import React from "react";
-import logo from "./logo.svg";
 import "./App.css";
 import Header from "./components/Header/Header";
 import Sidebar from "./components/Sidebar/Sidebar";
@@ -14,24 +13,8 @@ const App = (props) => {
         <Header />
         <Sidebar />
         <div className="app_content">
-          <Route
-            path="/profile"
-            render={() => (
-              <Profile
-                state={props.store.getState().profilePage}
-                store={props.store}
-              />
-            )}
-          />
-          <Route
-            path="/dialogs"
-            render={() => (
-              <Dialogs
-                state={props.store.getState().dialogsPage}
-                store={props.store}
-              />
-            )}
-          />
+          <Route path="/profile" render={() => <Profile />} />
+          <Route path="/dialogs" render={() => <Dialogs />} />
         </div>
       </div>
     </BrowserRouter>
