@@ -1,3 +1,6 @@
+import profileReducer from './profile-reducer';
+import dialogsReducer from './dialogs-reducer';
+
 const store = {
   _state: {
     profilePage: {
@@ -73,47 +76,11 @@ const store = {
     this._subscriber = observer;
   },
 
-  _addPost() {
-    const newPost = {
-      id: 4,
-      message: this._state.profilePage.newPostText,
-      pubDate: "11.05.2021",
-      likesCount: 0,
-    };
-
-    this._state.profilePage.postsData.push(newPost);
-    this._state.profilePage.newPostText = "";
-    this._subscriber();
-  },
-
-  _updateNewPostText(newText) {
-    this._state.profilePage.newPostText = newText;
-    this._subscriber();
-  },
-
-  _updateNewMessageText(newText) {
-    this._state.dialogsPage.newMessageText = newText;
-    this._subscriber();
-  },
-
-  _addMessage() {
-    this._state.dialogsPage.messagesData.push({
-      message: this._state.dialogsPage.newMessageText,
-    });
-    this._state.dialogsPage.newMessageText = "";
-    this._subscriber();
-  },
-
   dispatch(action) {
-    if (action.type === "ADD-POST") {
-      this._addPost();
-    } else if (action.type === "UPDATE-NEW-POST-TEXT") {
-      this._updateNewPostText(action.newText);
-    } else if (action.type === "UPDATE-NEW-MESSAGE-TEXT") {
-      this._updateNewMessageText(action.newText);
-    } else if (action.type === "ADD-MESSAGE") {
-      this._addMessage();
-    }
+    this._state.profilePage = profileReducer(this._state.profilePage, action);
+    this._state.dialogsPage = dialogsReducer(this._state.dialogsPage, action);
+
+    this._subscriber();
   },
 };
 
