@@ -1,34 +1,14 @@
 const FOLLOW = "FOLLOW";
 const UNFOLLOW = "UNFOLLOW";
 const SET_USERS = "SET-USERS";
+const SET_TOTAL_USERS_COUNT = "SET-TOTAL-USERS-COUNT";
+const SET_CURRENT_PAGE = "SET-CURRENT-PAGE";
 
 const initialState = {
-  users: [
-    {
-      id: 1,
-      followed: false,
-      avatarImgUrl: "https://placehold.it/100x100",
-      fullName: "Denis",
-      status: "Learning React",
-      location: { country: "Ukraine", city: "Mykolaiv" },
-    },
-    {
-      id: 2,
-      followed: false,
-      avatarImgUrl: "https://placehold.it/100x100",
-      fullName: "Alex",
-      status: "Learning React too",
-      location: { country: "USA", city: "New York" },
-    },
-    {
-      id: 3,
-      followed: false,
-      avatarImgUrl: "https://placehold.it/100x100",
-      fullName: "Mark",
-      status: "Learning React tooo",
-      location: { country: "Germany", city: "Berlin" },
-    },
-  ],
+  users: [],
+  pageSize: 5,
+  currentPage: 1,
+  totalUsersCount: 0,
 };
 
 const profileReducer = (state = initialState, action) => {
@@ -58,7 +38,17 @@ const profileReducer = (state = initialState, action) => {
     case SET_USERS:
       return {
         ...state,
-        users: [...state.users, ...action.users],
+        users: action.users,
+      };
+    case SET_TOTAL_USERS_COUNT:
+      return {
+        ...state,
+        totalUsersCount: action.count,
+      };
+    case SET_CURRENT_PAGE:
+      return {
+        ...state,
+        currentPage: action.pageNumber,
       };
     default:
       return state;
@@ -68,5 +58,13 @@ const profileReducer = (state = initialState, action) => {
 export const followAC = (userId) => ({ type: FOLLOW, userId: userId });
 export const unfollowAC = (userId) => ({ type: UNFOLLOW, userId: userId });
 export const setUsersAC = (users) => ({ type: SET_USERS, users: users });
+export const setTotalUsersCountAC = (count) => ({
+  type: SET_TOTAL_USERS_COUNT,
+  count,
+});
+export const setCurrentPageAC = (pageNumber) => ({
+  type: SET_CURRENT_PAGE,
+  pageNumber,
+});
 
 export default profileReducer;

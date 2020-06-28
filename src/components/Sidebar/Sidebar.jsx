@@ -17,6 +17,11 @@ const Sidebar = () => {
           </NavLink>
         </li>
         <li className="sidebar__item">
+          <NavLink className="sidebar__url" to="/users">
+            Users
+          </NavLink>
+        </li>
+        <li className="sidebar__item">
           <NavLink className="sidebar__url" to="/news">
             News
           </NavLink>
