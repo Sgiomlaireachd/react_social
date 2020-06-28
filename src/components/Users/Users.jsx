@@ -37,37 +37,7 @@ const Users = (props) => {
     </div>
   ));
 
-  const pagesCount = Math.ceil(props.totalUsersCount / props.pageSize);
-
-  const pages = [];
-  for (let i = 1; i <= pagesCount; i++) {
-    pages.push(i);
-  }
-
-  const pagination = pages.map((p) => {
-    return (
-      <span
-        key={p}
-        className={
-          p === props.currentPage
-            ? "pagination__item active"
-            : "pagination__item"
-        }
-        onClick={() => {
-          props.getUsers(p);
-        }}
-      >
-        {p}
-      </span>
-    );
-  });
-
-  return (
-    <div className="users">
-      <div className="pagination">{pagination}</div>
-      {users}
-    </div>
-  );
+  return <div className="users">{users}</div>;
 };
 
 export default Users;
