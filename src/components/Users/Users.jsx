@@ -1,15 +1,24 @@
 import React from "react";
 import userAvatar from "../../assets/images/user.png";
 import "./Users.css";
+import { NavLink } from "react-router-dom";
 
 const Users = (props) => {
+  const followUser = (userId) => {
+    props.follow(userId);
+  };
+  const unfollowUser = (userId) => {
+    props.unfollow(userId);
+  };
   const users = props.users.map((u) => (
     <div className="user" key={u.id}>
-      <img
-        className="user__avatar"
-        src={u.photos.small ? u.photos.small : userAvatar}
-        alt="Avatar"
-      ></img>
+      <NavLink to={"/profile/" + u.id}>
+        <img
+          className="user__avatar"
+          src={u.photos.small ? u.photos.small : userAvatar}
+          alt="Avatar"
+        ></img>
+      </NavLink>
       <div>{u.name}</div>
       <div>{u.status ? u.status : "No status."}</div>
       <div className="user__location">
@@ -18,16 +27,18 @@ const Users = (props) => {
       </div>
       {u.followed ? (
         <button
+          disabled={props.followingInProgress.some((id) => id === u.id)}
           onClick={() => {
-            props.unfollowUser(u.id);
+            unfollowUser(u.id);
           }}
         >
           Unfollow
         </button>
       ) : (
         <button
+          disabled={props.followingInProgress.some((id) => id === u.id)}
           onClick={() => {
-            props.followUser(u.id);
+            followUser(u.id);
           }}
         >
           Follow

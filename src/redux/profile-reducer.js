@@ -1,68 +1,65 @@
+import { profileAPI } from "../api/api";
+
 const ADD_POST = "ADD-POST";
-const NEW_POST_TEXT = "UPDATE-NEW-POST-TEXT";
+const UPDATE_NEW_POST_TEXT = "UPDATE-NEW-POST-TEXT";
+const SET_USER_PROFILE = "SET-USER-PROFILE";
 
 const initialState = {
-  postsData: [
-    {
-      id: 1,
-      message: "this is My first post!",
-      pubDate: "11.05.2000",
-      likesCount: 999,
-    },
-    {
-      id: 2,
-      message: "this is mnabdjkabdt!",
-      pubDate: "11.08.2020",
-      likesCount: 3,
-    },
-    {
-      id: 3,
-      message: "this is My first post!",
-      pubDate: "22.06.2020",
-      likesCount: 1,
-    },
-  ],
+  postsData: [],
   newPostText: "",
+  profile: null,
 };
 
 const profileReducer = (state = initialState, action) => {
   switch (action.type) {
     case ADD_POST: {
-      let stateCopy = { ...state };
-      stateCopy.postsData = [...state.postsData];
-
       const newPost = {
         id: 4,
         message: state.newPostText,
         pubDate: "11.05.2021",
         likesCount: 0,
       };
-
-      stateCopy.postsData.push(newPost);
-      stateCopy.newPostText = "";
-      return stateCopy;
+      return {
+        ...state,
+        newPostText: "",
+        postsData: [...state.postsData, newPost],
+      };
     }
-    case NEW_POST_TEXT: {
-      let stateCopy = { ...state };
-      stateCopy.newPostText = action.newText;
-      return stateCopy;
+    case UPDATE_NEW_POST_TEXT: {
+      return {
+        ...state,
+        newPostText: action.newText,
+      };
+    }
+    case SET_USER_PROFILE: {
+      return {
+        ...state,
+        profile: action.profile,
+      };
     }
     default:
       return state;
   }
 };
 
-export const addPostActionCreator = () => {
-  return {
-    type: "ADD-POST",
-  };
-};
+export const addPostActionCreator = () => ({
+  type: ADD_POST,
+});
 
-export const updateNewPostTextActionCreator = (newText) => {
-  return {
-    type: "UPDATE-NEW-POST-TEXT",
-    newText: newText,
-  };
+export const updateNewPostTextActionCreator = (newText) => ({
+  type: UPDATE_NEW_POST_TEXT,
+  newText: newText,
+});
+
+export const setUserProfile = (profile) => ({
+  type: SET_USER_PROFILE,
+  profile,
+});
+
+export const setUserProfileInfo = (userId) => (dispatch) => {
+  profileAPI.getProfileInfo(userId).then((data) => {
+    dispatch(setUserProfile(data));
+  });
 };
 
 export default profileReducer;
