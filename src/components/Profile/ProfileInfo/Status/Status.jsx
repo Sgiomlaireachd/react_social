@@ -12,7 +12,7 @@ class Status extends React.Component {
     });
 
     if (this.state.isInEditMode) {
-      this.props.updateStatus({ status: e.target.value });
+      this.props.updateStatus(e.target.value);
     }
   };
 
