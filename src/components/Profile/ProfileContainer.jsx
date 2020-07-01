@@ -8,7 +8,7 @@ import withAuthRedirect from "../../hoc/withAuthRedirect";
 
 class ProfileContainer extends React.Component {
   componentDidMount() {
-    const userId = this.props.match.params.userId || 2;
+    const userId = this.props.match.params.userId || 8991;
     this.props.setUserProfileInfo(userId);
   }
   render() {

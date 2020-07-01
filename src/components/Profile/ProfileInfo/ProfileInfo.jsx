@@ -1,6 +1,7 @@
 import React from "react";
 import "./ProfileInfo.css";
 import Preloader from "../../common/Preloader/Prefloader";
+import StatusContainer from "./Status/StatusContainer";
 
 const ProfileInfo = (props) => {
   if (!props.profile) {
@@ -18,6 +19,7 @@ const ProfileInfo = (props) => {
           alt="Avatar"
         ></img>
         <span className="profile__user-name">{props.profile.fullName}</span>
+        <StatusContainer />
       </div>
     </div>
   );

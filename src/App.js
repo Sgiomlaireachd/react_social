@@ -1,7 +1,6 @@
 import React from "react";
 import "./App.css";
 import Sidebar from "./components/Sidebar/Sidebar";
-import Dialogs from "./components/Dialogs/Dialogs";
 import UsersContainer from "./components/Users/UsersContainer";
 import { Route, BrowserRouter } from "react-router-dom";
 import ProfileContainer from "./components/Profile/ProfileContainer";

@@ -3,11 +3,13 @@ import { profileAPI } from "../api/api";
 const ADD_POST = "ADD-POST";
 const UPDATE_NEW_POST_TEXT = "UPDATE-NEW-POST-TEXT";
 const SET_USER_PROFILE = "SET-USER-PROFILE";
+const SET_USER_STATUS = "SET-USER-STATUS";
 
 const initialState = {
   postsData: [],
   newPostText: "",
   profile: null,
+  userStatus: null,
 };
 
 const profileReducer = (state = initialState, action) => {
@@ -37,10 +39,18 @@ const profileReducer = (state = initialState, action) => {
         profile: action.profile,
       };
     }
+    case SET_USER_STATUS: {
+      return {
+        ...state,
+        userStatus: action.userStatus,
+      };
+    }
     default:
       return state;
   }
 };
+
+// Action creators
 
 export const addPostActionCreator = () => ({
   type: ADD_POST,
@@ -56,9 +66,28 @@ export const setUserProfile = (profile) => ({
   profile,
 });
 
+export const setUserStatus = (userStatus) => ({
+  type: SET_USER_STATUS,
+  userStatus,
+});
+
+// Thunk creators
+
 export const setUserProfileInfo = (userId) => (dispatch) => {
   profileAPI.getProfileInfo(userId).then((data) => {
     dispatch(setUserProfile(data));
+  });
+};
+
+export const getUserStatus = (userId) => (dispatch) => {
+  profileAPI.getUserStatus(userId).then((status) => {
+    dispatch(setUserStatus(status));
+  });
+};
+
+export const updateStatus = (status) => (dispatch) => {
+  profileAPI.setUserStatus(status).then((data) => {
+    dispatch(setUserStatus(status.status));
   });
 };
 
