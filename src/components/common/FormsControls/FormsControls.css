@@ -1,0 +1,8 @@
+.element-control__element {
+  border-radius: 10px;
+  padding: 5px 10px;
+}
+
+.element-control__element.error {
+  border: 1px solid red;
+}

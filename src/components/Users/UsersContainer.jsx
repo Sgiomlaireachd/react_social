@@ -2,8 +2,8 @@ import { getUsers, follow, unfollow } from "../../redux/users-reducer";
 import { connect } from "react-redux";
 import React from "react";
 import Users from "./Users";
-import Preloader from "../common/Preloader/Prefloader";
-import Pagination from "../common/Preloader/Pagination/Pagination";
+import Preloader from "../common/Preloader/Preloader";
+import Pagination from "../common/Pagination/Pagination";
 
 class UsersAPIComponent extends React.Component {
   componentDidMount() {

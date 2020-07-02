@@ -32,6 +32,14 @@ export const authAPI = {
   authMe() {
     return axiosInstance.get("auth/me").then((response) => response.data);
   },
+  login(email, password, rememberMe) {
+    return axiosInstance
+      .post("auth/login", { email, password, rememberMe })
+      .then((response) => response.data);
+  },
+  logout() {
+    return axiosInstance.post("auth/logout").then((response) => response.data);
+  },
 };
 
 export const profileAPI = {

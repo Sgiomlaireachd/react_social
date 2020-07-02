@@ -3,6 +3,7 @@ import Status from "./Status";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 import { getUserStatus, updateStatus } from "../../../../redux/profile-reducer";
+import StatusWithHooks from "./StatusWithHooks";
 
 class StatusContainer extends React.Component {
   componentDidMount() {
@@ -11,7 +12,7 @@ class StatusContainer extends React.Component {
   }
   render() {
     return (
-      <Status
+      <StatusWithHooks
         userStatus={this.props.userStatus}
         updateStatus={this.props.updateStatus}
       />

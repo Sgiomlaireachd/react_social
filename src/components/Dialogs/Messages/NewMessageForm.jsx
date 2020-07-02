@@ -1,12 +1,13 @@
 import React from "react";
 import { reduxForm, Field, reset } from "redux-form";
+import { Textarea } from "../../common/FormsControls/FormsControls";
 
 const NewMessageForm = (props) => {
   return (
     <form onSubmit={props.handleSubmit}>
       <div>
         <Field
-          component={"input"}
+          component={Textarea}
           placeholder={"New message"}
           name={"message"}
         />
