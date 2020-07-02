@@ -3,7 +3,7 @@ import React from "react";
 class Status extends React.Component {
   state = {
     isInEditMode: false,
-    statusText: "",
+    statusText: this.props.userStatus,
   };
 
   toggleEditMode = (e) => {
@@ -21,6 +21,14 @@ class Status extends React.Component {
       statusText: e.target.value,
     });
   };
+
+  componentDidUpdate(prevProps, prevState) {
+    if (this.props.userStatus !== prevProps.userStatus) {
+      this.setState({
+        statusText: this.props.userStatus,
+      });
+    }
+  }
 
   render() {
     return (
