@@ -10,6 +10,7 @@ const Users = (props) => {
   const unfollowUser = (userId) => {
     props.unfollow(userId);
   };
+
   const users = props.users.map((u) => (
     <div className="user" key={u.id}>
       <NavLink to={"/profile/" + u.id}>
@@ -21,10 +22,6 @@ const Users = (props) => {
       </NavLink>
       <div>{u.name}</div>
       <div>{u.status ? u.status : "No status."}</div>
-      <div className="user__location">
-        <span>{u.country}</span>
-        <span>{u.city}</span>
-      </div>
       {u.followed ? (
         <button
           disabled={props.followingInProgress.some((id) => id === u.id)}

@@ -9,7 +9,7 @@ export const Textarea = ({ input, meta, ...props }) => {
       <textarea
         {...input}
         {...props}
-        classNAme={"element-control__element" + (hasError ? " error" : "")}
+        className={"element-control__element" + (hasError ? " error" : "")}
       ></textarea>
       <br />
       {hasError && (
@@ -27,7 +27,7 @@ export const Input = ({ input, meta, ...props }) => {
       <input
         {...input}
         {...props}
-        classNAme={"element-control__element" + (hasError ? " error" : "")}
+        className={"element-control__element" + (hasError ? " error" : "")}
       ></input>
       <br />
       {hasError && (

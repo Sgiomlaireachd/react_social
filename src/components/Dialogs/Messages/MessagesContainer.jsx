@@ -1,9 +1,17 @@
+import React from "react";
 import Messages from "./Messages";
-import {
-  updateNewMessageTextActionCreator,
-  addMessageActionCreator,
-} from "../../../redux/dialogs-reducer";
+import { addMessage } from "../../../redux/dialogs-reducer";
 import { connect } from "react-redux";
+
+class MessagesContainer extends React.Component {
+  onAddMessage = (message) => {
+    this.props.addMessage(message);
+  };
+
+  render() {
+    return <Messages {...this.props} onAddMessage={this.onAddMessage} />;
+  }
+}
 
 const mapStateToProps = (state) => {
   return {
@@ -11,20 +19,4 @@ const mapStateToProps = (state) => {
   };
 };
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    addMessage: (message) => {
-      return dispatch(addMessageActionCreator(message));
-    },
-    updateTextArea: (text) => {
-      return dispatch(updateNewMessageTextActionCreator(text));
-    },
-  };
-};
-
-const MessagesContainer = connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(Messages);
-
-export default MessagesContainer;
+export default connect(mapStateToProps, { addMessage })(MessagesContainer);
