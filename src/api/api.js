@@ -61,3 +61,21 @@ export const profileAPI = {
       .then((response) => response.data);
   },
 };
+
+export const dialogsAPI = {
+  getDialogs() {
+    return axiosInstance.get("dialogs").then((response) => response.data);
+  },
+
+  getDialogMessages(userId) {
+    return axiosInstance
+      .get(`dialogs/${userId}/messages`)
+      .then((response) => response.data);
+  },
+
+  sendMessage(userId, messageBody) {
+    return axiosInstance
+      .post(`dialogs/${userId}/messages`, { body: messageBody })
+      .then((response) => response.data);
+  },
+};

@@ -4,8 +4,9 @@ import "./Messages.css";
 import NewMessageReduxForm from "./NewMessageForm";
 
 const Messages = (props) => {
-  const messages = props.messagesData.map((item, index) => (
-    <Message message={item.message} key={index} />
+  console.log("MESSAGES:", props);
+  const messages = props.messagesData.map((item) => (
+    <Message message={item.body} key={item.id} />
   ));
 
   const sendMessage = (data) => {

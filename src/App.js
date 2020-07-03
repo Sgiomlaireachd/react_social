@@ -16,7 +16,7 @@ const App = (props) => {
         <Sidebar />
         <div className="app_content">
           <Route path="/profile/:userId?" render={() => <ProfileContainer />} />
-          <Route path="/dialogs" render={() => <DialogsContainer />} />
+          <Route path="/dialogs/:userId?" render={() => <DialogsContainer />} />
           <Route path="/users" render={() => <UsersContainer />} />
           <Route path="/login" render={() => <Login />} />
         </div>

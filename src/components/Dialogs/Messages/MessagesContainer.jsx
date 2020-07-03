@@ -1,11 +1,14 @@
 import React from "react";
 import Messages from "./Messages";
-import { addMessage } from "../../../redux/dialogs-reducer";
+import { sendMessage } from "../../../redux/dialogs-reducer";
 import { connect } from "react-redux";
+import { compose } from "redux";
+import { withRouter } from "react-router-dom";
 
 class MessagesContainer extends React.Component {
   onAddMessage = (message) => {
-    this.props.addMessage(message);
+    const userId = this.props.match.params.userId || 2;
+    this.props.sendMessage(userId, message);
   };
 
   render() {
@@ -19,4 +22,7 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps, { addMessage })(MessagesContainer);
+export default compose(
+  connect(mapStateToProps, { sendMessage }),
+  withRouter
+)(MessagesContainer);
