@@ -9,17 +9,21 @@ const Header = (props) => {
 
   return (
     <header className="header">
-      <h1>MYSocial</h1>
+      <h1 className="header__logo">MYSocial</h1>
       <div className="login-info">
         {props.isLoggedIn ? (
-          <div>
-            <span className="login-info__username">Hello, {props.login}</span>
+          <>
+            <span className="login-info__username">
+              Hello, <b>{props.login}</b>
+            </span>
             <span className="login-info__logout" onClick={onLogout}>
               Logout
             </span>
-          </div>
+          </>
         ) : (
-          <NavLink to={"/login"}>Login</NavLink>
+          <NavLink to={"/login"} className="login-info__login">
+            Login
+          </NavLink>
         )}
       </div>
     </header>

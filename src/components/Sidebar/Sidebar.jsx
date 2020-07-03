@@ -21,21 +21,6 @@ const Sidebar = () => {
             Users
           </NavLink>
         </li>
-        <li className="sidebar__item">
-          <NavLink className="sidebar__url" to="/news">
-            News
-          </NavLink>
-        </li>
-        <li className="sidebar__item">
-          <NavLink className="sidebar__url" to="/music">
-            Music
-          </NavLink>
-        </li>
-        <li className="sidebar__item">
-          <NavLink className="sidebar__url" to="/settings">
-            Settigs
-          </NavLink>
-        </li>
       </ul>
     </nav>
   );

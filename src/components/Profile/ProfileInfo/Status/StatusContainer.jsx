@@ -1,5 +1,4 @@
 import React from "react";
-import Status from "./Status";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 import { getUserStatus, updateStatus } from "../../../../redux/profile-reducer";

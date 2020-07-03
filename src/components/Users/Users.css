@@ -1,21 +1,52 @@
+.users {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-gap: 30px;
+  padding: 50px;
+}
+
+.user {
+  text-align: center;
+  box-shadow: 0px 2px 15px gray;
+  padding: 10px;
+
+  /* display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center; */
+}
+
 .user__avatar {
   width: 80px;
   height: auto;
+  margin: 0 auto;
 }
 
-.pagination {
-  margin: 20px 0px;
+.user__name {
+  margin-top: 25px;
 }
 
-.pagination__item {
-  padding: 3px 5px;
-  border: 1px solid black;
-  margin: 0px 5px;
+.user__status {
+  margin: 8px 0px;
+}
+
+.user__btn {
+  background: none;
+  color: #000;
+  border: 1px solid gray;
+  padding: 5px 10px;
   cursor: pointer;
+
+  transition: color 0.2s ease, background-color 0.2s ease;
 }
 
-.pagination__item.active {
+.user__unfollow,
+.user__follow:hover {
+  background-color: gray;
   color: #fff;
-  background-color: #000;
-  font-weight: bold;
+}
+
+.user__unfollow:hover {
+  color: black;
+  background-color: #fff;
 }

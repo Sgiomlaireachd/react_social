@@ -20,10 +20,11 @@ const Users = (props) => {
           alt="Avatar"
         ></img>
       </NavLink>
-      <div>{u.name}</div>
-      <div>{u.status ? u.status : "No status."}</div>
+      <h4 className="user__name">{u.name}</h4>
+      <div className="user__status">{u.status ? u.status : "No status."}</div>
       {u.followed ? (
         <button
+          className="user__btn user__unfollow"
           disabled={props.followingInProgress.some((id) => id === u.id)}
           onClick={() => {
             unfollowUser(u.id);
@@ -33,6 +34,7 @@ const Users = (props) => {
         </button>
       ) : (
         <button
+          className="user__btn user__follow"
           disabled={props.followingInProgress.some((id) => id === u.id)}
           onClick={() => {
             followUser(u.id);
@@ -41,7 +43,6 @@ const Users = (props) => {
           Follow
         </button>
       )}
-      <hr />
     </div>
   ));
 

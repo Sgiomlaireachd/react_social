@@ -1,5 +1,9 @@
 /* ProfileInfo */
 
+.profile__info {
+  padding-bottom: 50px;
+}
+
 .profile__user-info {
   display: flex;
   flex-direction: column;

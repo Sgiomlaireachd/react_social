@@ -1,4 +1,5 @@
 import React from "react";
+import "./Status.css";
 
 class Status extends React.Component {
   state = {
@@ -41,7 +42,7 @@ class Status extends React.Component {
             value={this.state.statusText}
           />
         ) : (
-          <span onClick={this.toggleEditMode}>
+          <span onClick={this.toggleEditMode} className="status__text">
             {this.props.userStatus || "No status."}
           </span>
         )}

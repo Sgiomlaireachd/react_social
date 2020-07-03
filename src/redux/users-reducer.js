@@ -1,7 +1,5 @@
 import { usersAPI } from "../api/api";
 
-const FOLLOW = "users/FOLLOW";
-const UNFOLLOW = "users/UNFOLLOW";
 const TOGGLE_FOLLOW = "users/TOGGLE_FOLLOW";
 const SET_USERS = "users/SET-USERS";
 const SET_TOTAL_USERS_COUNT = "users/SET-TOTAL-USERS-COUNT";
@@ -11,8 +9,8 @@ const UPDATE_FOLLOWING_IN_PROGRESS = "users/UPDATE-IS-FOLLOWING-IN-PROGRESS";
 
 const initialState = {
   users: [],
-  pageSize: 5,
-  currentPage: 10,
+  pageSize: 25,
+  currentPage: 1,
   totalUsersCount: 0,
   isFetching: true,
   followingInProgress: [],

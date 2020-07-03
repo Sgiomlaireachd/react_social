@@ -33,6 +33,12 @@ class UsersAPIComponent extends React.Component {
             unfollow={this.props.unfollow}
           />
         )}
+        <Pagination
+          pageSize={this.props.pageSize}
+          currentPage={this.props.currentPage}
+          totalInstancesCount={this.props.totalUsersCount}
+          getInstances={this.getUsersPage}
+        />
       </>
     );
   }

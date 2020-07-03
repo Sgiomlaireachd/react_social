@@ -81,7 +81,9 @@ export const getUserStatus = (userId) => async (dispatch) => {
 
 export const updateStatus = (status) => async (dispatch) => {
   const data = await profileAPI.setUserStatus(status);
-  dispatch(setUserStatus(status));
+  if (!data.resultCode) {
+    dispatch(setUserStatus(status));
+  }
 };
 
 export default profileReducer;

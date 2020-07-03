@@ -1,4 +1,5 @@
 import React from "react";
+import "./Pagination.css";
 
 const Pagination = (props) => {
   const pagesCount = Math.ceil(props.totalInstancesCount / props.pageSize);
