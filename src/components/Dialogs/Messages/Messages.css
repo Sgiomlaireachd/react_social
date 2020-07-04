@@ -1,0 +1,30 @@
+.messages__messages-block {
+  padding: 35px 5px;
+  overflow-y: scroll;
+  height: 70vh;
+}
+
+.messages__input {
+  width: 100%;
+  border: 1px solid rgb(231, 231, 231);
+}
+
+.messages__input-form {
+  display: flex;
+}
+
+.messages__btn {
+  border: 1px solid rgb(231, 231, 231);
+  border-left: none;
+  background: none;
+  padding: 3px 25px;
+  cursor: pointer;
+  color: #fff;
+  background-color: gray;
+  transition: color 0.2s ease, background-color 0.2s ease;
+}
+
+.messages__btn:hover {
+  color: #000;
+  background-color: #fff;
+}

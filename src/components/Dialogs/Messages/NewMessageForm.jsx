@@ -1,20 +1,17 @@
 import React from "react";
 import { reduxForm, Field, reset } from "redux-form";
-import { Textarea } from "../../common/FormsControls/FormsControls";
+import { Input, Textarea } from "../../common/FormsControls/FormsControls";
 
 const NewMessageForm = (props) => {
   return (
-    <form onSubmit={props.handleSubmit}>
-      <div>
-        <Field
-          component={Textarea}
-          placeholder={"New message"}
-          name={"message"}
-        />
-      </div>
-      <div>
-        <button>Send</button>
-      </div>
+    <form onSubmit={props.handleSubmit} className={props.className}>
+      <Field
+        className={props.fieldClass}
+        component={Textarea}
+        placeholder={"New message"}
+        name={"message"}
+      />
+      <button className={props.buttonClass}>Send</button>
     </form>
   );
 };

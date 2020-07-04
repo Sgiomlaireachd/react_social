@@ -15,7 +15,6 @@ class DialogsContainer extends React.Component {
   }
 
   componentDidUpdate() {
-    console.log("HERE");
     const userId = this.props.match.params.userId || 2;
     this.props.getDialogMessages(userId);
   }

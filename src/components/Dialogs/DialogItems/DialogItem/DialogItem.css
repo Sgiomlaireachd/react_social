@@ -1,10 +1,10 @@
 .dialog__item {
-  /* padding: 5px 25px; */
   transition: background-color 0.2s ease;
 }
 
+.dialog__item_active,
 .dialog__item:hover {
-  background-color: #fff;
+  background-color: rgb(233, 233, 233);
 }
 
 .dialog__item_from {

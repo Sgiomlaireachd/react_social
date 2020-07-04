@@ -4,9 +4,12 @@ import "./Messages.css";
 import NewMessageReduxForm from "./NewMessageForm";
 
 const Messages = (props) => {
-  console.log("MESSAGES:", props);
   const messages = props.messagesData.map((item) => (
-    <Message message={item.body} key={item.id} />
+    <Message
+      message={item.body}
+      key={item.id}
+      isFromYou={item.senderName === "sgiomlaireachd"}
+    />
   ));
 
   const sendMessage = (data) => {
@@ -15,8 +18,13 @@ const Messages = (props) => {
 
   return (
     <div className="messages">
-      {messages}
-      <NewMessageReduxForm onSubmit={sendMessage} />
+      <div className="messages__messages-block">{messages}</div>
+      <NewMessageReduxForm
+        className="messages__input-form"
+        onSubmit={sendMessage}
+        fieldClass="messages__input"
+        buttonClass="messages__btn"
+      />
     </div>
   );
 };

@@ -5,17 +5,21 @@ export const Textarea = ({ input, meta, ...props }) => {
   const hasError = meta.error && meta.touched;
 
   return (
-    <div className="element-control">
+    <>
       <textarea
         {...input}
         {...props}
-        className={"element-control__element" + (hasError ? " error" : "")}
+        className={
+          "element-control__element " +
+          (hasError ? "error" : "") +
+          props.className
+        }
       ></textarea>
       <br />
       {hasError && (
         <span className="element-control__error-message">{meta.error}</span>
       )}
-    </div>
+    </>
   );
 };
 
@@ -23,16 +27,20 @@ export const Input = ({ input, meta, ...props }) => {
   const hasError = meta.error && meta.touched;
 
   return (
-    <div className="element-control">
+    <>
       <input
         {...input}
         {...props}
-        className={"element-control__element" + (hasError ? " error" : "")}
+        className={
+          "element-control__element " +
+          (hasError ? "error" : "") +
+          props.className
+        }
       ></input>
       <br />
       {hasError && (
         <span className="element-control__error-message">{meta.error}</span>
       )}
-    </div>
+    </>
   );
 };
